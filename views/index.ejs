@@ -11,15 +11,22 @@
     <script src="/javascripts/jquery.js"></script>
     <script src="/javascripts/socket.io.js"></script>
     <script>
-        var socket = io.connect('http://localhost:3000/');
-        socket.on('connect', function(data) {
-            socket.emit('join', 'Hello World from client');
-        });
-        socket.on('messages', function(data) {
-            $('#future').append(data+ "<br/>");
-        });
-        socket.on('broad', function(data) {
-            $('#future').append(data+ "<br/>");
+        $(document).ready(function () {
+            var arr = window.location.href.split("/");
+            var site_url = arr[0] + "//" + arr[2];
+            console.info("site_url",site_url);
+
+            var socket = io.connect(site_url);
+            socket.on('connect', function(data) {
+                socket.emit('join', 'Hello World from client');
+            });
+            socket.on('messages', function(data) {
+                $('#future').append(data+ "<br/>");
+            });
+            socket.on('broad', function(data) {
+                $('#future').append(data+ "<br/>");
+            });
+
         });
 
 
