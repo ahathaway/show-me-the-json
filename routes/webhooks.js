@@ -3,7 +3,7 @@ const router = express.Router();
 const childProcess = require('child_process');
 
 //our github webhook receiver
-router.post("/webhooks/github", function (req, res) {
+router.post("/github", function (req, res) {
     let sender = req.body.sender;
     let branch = req.body.ref;
 
@@ -22,7 +22,7 @@ function deploy(res){
     });
 }
 
-router.post("/webhooks/loopback", function (req, res) {
+router.post("/loopback", function (req, res) {
     global.io.emit('messages', JSON.stringify(req.body));
     res.json(req.body);
 });
