@@ -33,7 +33,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/webhooks', webhooksRouter);
 // app.use('/users', usersRouter);
-app.use('/display', usersRouter);
+app.use('/display', displayRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
