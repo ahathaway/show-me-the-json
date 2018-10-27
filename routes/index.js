@@ -4,7 +4,10 @@ const childProcess = require('child_process');
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
-    res.render('index', {title: 'Show Me The JSON'});
+    res.render('index', {
+        title: 'Show Me The JSON',
+        desc: 'Show Me The JSON is an always available tool, for helping you decipher what that api call is doing. Just point whichever system at your custom, single-session-use URL below, and the results of the request will be displayed in this browser window just below the URL.'
+    });
 });
 
 module.exports = router;
