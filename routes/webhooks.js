@@ -13,12 +13,13 @@ router.post("/github", function (req, res) {
 });
 
 function deploy(res){
-    childProcess.exec('cd /home && ./deploy.sh', function(err, stdout, stderr){
+    childProcess.exec('cd /home/alexhath && ./deploy.sh', function(err, stdout, stderr){
         if (err) {
             console.error(err);
-            return res.send(500);
+            return res.sendStatus(500);
         }
-        res.send(200);
+        console.info(stdout);
+        res.sendStatus(200);
     });
 }
 
