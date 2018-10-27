@@ -10,7 +10,7 @@ router.get('/', function (req, res, next) {
     });
 });
 
-app.get('/robots.txt', function (req, res) {
+router.get('/robots.txt', function (req, res) {
     res.type('text/plain');
     res.send("User-agent: *\nDisallow: /users\nDisallow: /webhooks\nDisallow: /javascripts\nDisallow: /stylesheets");
 });
