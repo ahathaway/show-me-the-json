@@ -18,7 +18,6 @@ function deploy(res){
             console.error(err);
             return res.sendStatus(500);
         }
-        console.info(stdout);
         res.sendStatus(200);
     });
 }
