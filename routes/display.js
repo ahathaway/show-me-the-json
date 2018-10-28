@@ -3,7 +3,7 @@ const router = express.Router();
 const childProcess = require('child_process');
 
 router.post("/:key", function (req, res) {
-
+    let key = req.params['key'];
 
     // if(branch.indexOf('master') > -1 && sender.login === process.env.GITHUB_USERNAME){
     //     deploy(res);
