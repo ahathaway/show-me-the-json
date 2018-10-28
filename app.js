@@ -1,5 +1,4 @@
-const ua = require('universal-analytics');
-const visitor = ua(process.env.GA_TRACKING_ID);
+const expressGa = require('express-ga-middleware');
 
 const createError = require('http-errors');
 const express = require('express');
@@ -7,6 +6,7 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const sassMiddleware = require('node-sass-middleware');
+
 
 const indexRouter = require('./routes/index');
 const webhooksRouter = require('./routes/webhooks');
@@ -20,6 +20,8 @@ app.set('view engine', 'ejs');
 
 app.use(logger('dev'));
 app.use(express.json());
+app.use(expressGa(process.env.GA_TRACKING_ID));
+
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(sassMiddleware({
@@ -29,6 +31,7 @@ app.use(sassMiddleware({
   sourceMap: true
 }));
 app.use(express.static(path.join(__dirname, 'public')));
+// app.use((req, res, next) => { res.removeHeader('X-Powered-By'); next(); });
 
 app.use('/', indexRouter);
 app.use('/webhooks', webhooksRouter);
