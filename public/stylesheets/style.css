@@ -1,16 +1,13 @@
 /* Sticky footer styles
 -------------------------------------------------- */
-/* line 3, Users/alexhath/code/show-me-the-json/public/stylesheets/style.scss */
 html {
   position: relative;
   min-height: 100%; }
 
-/* line 7, Users/alexhath/code/show-me-the-json/public/stylesheets/style.scss */
 body {
   margin-bottom: 60px;
   /* Margin bottom by footer height */ }
 
-/* line 10, Users/alexhath/code/show-me-the-json/public/stylesheets/style.scss */
 .footer {
   position: absolute;
   bottom: 0;
@@ -24,9 +21,9 @@ body {
 /* Custom page CSS
 -------------------------------------------------- */
 /* Not required for template or sticky footer method. */
-/* line 24, Users/alexhath/code/show-me-the-json/public/stylesheets/style.scss */
 .container {
   width: auto;
   max-width: 680px;
   padding: 0 15px; }
+
 /*# sourceMappingURL=style.css.map */
